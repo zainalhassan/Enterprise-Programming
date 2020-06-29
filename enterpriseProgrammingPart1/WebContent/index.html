@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>PART 3</title>
+<script src="scripts/jquery.js">	</script>
+<script src="scripts/myScript2.js"></script>	
+<link href="css/CSS4.css" rel="stylesheet"> 
+ <script src = "scripts/dialogScript.js"> </script>
+ <script src = "scripts/ajax-utils.js"> </script>
+
+ <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+ <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+ <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+ 
+ <center><img alt="logo" src="logo1.png"></center>
+	<body>
+	<center>
+		<div>
+		<button id = "jsonAllFilms"> ALL FILMS JSON</button>
+		<button id = "XmlAllFilms"> ALL FILMS XML</button>
+		<button id = "TextAllFilms"> ALL FILMS TEXT</button>
+		</div>
+		</center>
+		<br>
+		
+	<div>
+	<center>
+		<button id = "searchFilm"> Search with Name </button>
+		<button id = "searchFilmWithAttribute"> Search with Attribute </button>
+		<button id = "deleteFilm"> Delete Film </button>
+		<button id = "insertFilm"> Insert Film </button>
+		<button id = "updateFilm"> Update Film </button>
+		</center>
+		</div>
+		
+		
+			<div> <center> 
+			<select id = "chosenFormat">
+		<option value="json">JSON</option>
+		  <option value="text">Text</option>
+		  <option value="xml">XML</option>
+		</select> </center></div>
+		
+		
+		
+		<div id ="dialogSearchAttribute" title="Search using desired attribute"> 
+			<select id = "chosenAttribute">
+				<option value="filmID">Film ID</option>
+				<option value="filmName">Film Name</option>
+				<option value="filmYear">Film Year</option>
+				<option value="filmDuration">Film Duration(mins)</option>
+				<option value="filmCredits">Film Credits</option>
+				<option value="filmReview">Film Review</option>
+			</select>
+			<input type = text id = "inputtedInfo" placeholder = "Enter information"> </input>
+			<button id = "serchAttributeButton"> Search </button>
+		</div>
+		
+		
+		<div id ="dialogInsert" title="Enter new film details below"> 
+			<input type = text id = "filmName" placeholder = "Name"> </input>
+			<input type = number id = "filmYear" placeholder = "Year"> </input>
+			<input type = number id = "filmDuration" placeholder = "Duration(mins)"> </input>
+			<input type = text id = "filmCredits" placeholder = "Credits"> </input>
+			<input type = text id = "filmReview" placeholder = "Review"> </input>
+			<button id = "insertButton"> Insert </button>
+		</div>
+		
+		
+		<div id ="dialogUpdate" title="Update Film Attributes here">
+			<input type = text id = "updateFilmID" placeholder = "ID"> </input>
+			<input type = text id = "updateFilmName" placeholder = "Name"> </input>
+			<input type = number id = "updateFilmYear" placeholder = "Year"> </input>
+			<input type = number id = "updateFilmDuration" placeholder = "Duration(mins)"> </input>
+			<input type = text id = "updateFilmCredits" placeholder = "Credits"> </input>
+			<input type = text id = "updateFilmReview" placeholder = "Review"> </input>
+			<button id = "updateButton"> Update </button>
+		</div>
+		
+		
+		
+		<div id ="dialogSearch" title="Search using Film Name">
+		<input type = text id = "searchInput" placeholder = "Name"> </input>
+		<button id = "searchButton"> Search </button>
+		</div>
+		
+		
+		<div id ="dialogDelete" title="Delete Films using Film ID">
+		<input type = number id = "deleteInput" placeholder = "Film ID"> </input>
+		<button id = "deleteButton"> Delete </button>
+		</div>
+		
+		<div id="deleteConfirmDialog" title="Film will be permanently deleted!">
+			<button id = "confirm">Confirm</button>
+			<button id = "cancel">Cancel</button>
+		</div>
+		
+		
+		<div id ="result"> </div>
+		
+		<div id = xmlFilm>
+			<table class="table" id="formatXmlTable">
+				<thead class="thead-dark">
+					<tr>
+						<th scope="col">Film Id</th>
+						<th scope="col">Film Name</th>
+						<th scope="col">Film Year</th>
+						<th scope="col">Film Duration</th>
+						<th scope="col">Film Credits</th>
+						<th scope="col">Film Reviews</th>
+					</tr>
+				</thead>
+				<tbody id = "formatBodyXml">
+				</tbody>
+				</table>
+		</div>
+		
+		<div id = jsonFilm>
+			<table class="table table-borderless table-light" id="formatJsonTable">
+				<thead class="thead-light">
+					<tr>
+						<th scope="col">Film Id</th>
+						<th scope="col">Film Name</th>
+						<th scope="col">Film Year</th>
+						<th scope="col">Film Duration</th>
+						<th scope="col">Film Credits</th>
+						<th scope="col">Film Reviews</th>
+					</tr>
+				</thead>
+				<tbody id = "formatBodyJson">
+				</tbody>
+				</table>
+		</div>
+		
+		<center> <h1 id ="formatType"> </h1> </center>
+		
+		<div id = jsonFilms>
+			<table class="table table-borderless table-light" id="formatTable">
+				<thead class="thead-light">
+					<tr>
+						<th scope="col">Film Id</th>
+						<th scope="col">Film Name</th>
+						<th scope="col">Film Year</th>
+						<th scope="col">Film Duration</th>
+						<th scope="col">Film Credits</th>
+						<th scope="col">Film Reviews</th>
+					</tr>
+				</thead>
+				<tbody id = "formatBody">
+				</tbody>
+				</table>
+		</div>
+		
+		
+		
+		<div id = xmlFilms>
+			<table class="table" id="formatTable1">
+				<thead class="thead-dark">
+					<tr>
+						<th scope="col">Film Id</th>
+						<th scope="col">Film Name</th>
+						<th scope="col">Film Year</th>
+						<th scope="col">Film Duration</th>
+						<th scope="col">Film Credits</th>
+						<th scope="col">Film Reviews</th>
+					</tr>
+				</thead>
+				<tbody id = "formatBody1">
+				</tbody>
+				</table>
+		</div>
+		
+		
+		<div id = "allFilmsTable"> </div>
+		
+	</body>
+</html>	
